@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Count</title>
+
+<!-- 8.Write a program that uses a Map to store the count of each character in a given string and displays the result on the web page. -->
+
+<!-- Given input:Skill safari
+Expected output:
+S: 1
+k: 1
+i: 2
+l: 2
+: 1
+s: 1
+a: 2
+f: 1
+r: 1 -->
+
+<script>
+  function countCharacters() {
+    var inputString = document.getElementById("inputString").value;
+    
+    var charCountMap = new Map();
+    
+    for (var i = 0; i < inputString.length; i++) {
+      var char = inputString[i];
+      
+      if (charCountMap.has(char)) {
+        var count = charCountMap.get(char);
+        charCountMap.set(char, count + 1);
+      } else {
+        charCountMap.set(char, 1);
+      }
+    }
+    
+    var charCountString = "";
+    
+    charCountMap.forEach(function(value, key) {
+      charCountString += key + ": " + value + "<br>";
+    });
+    
+    document.getElementById("result").innerHTML = charCountString;
+  }
+</script>
+</head>
+<body>
+  <h1>Character Count</h1>
+  <label for="inputString">Input String:</label>
+  <input type="text" id="inputString"><br>
+  <button onclick="countCharacters()">Count Characters</button>
+  <p id="result"></p>
+</body>
+</html>

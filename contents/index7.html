@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Object</title>
+  <!-- 7.Write a program that creates an object representing a movie with properties like title, director, and rating. Then, display the object on the web page. -->
+
+  <script>
+    function displayMovie() {
+      var movie = {
+        title: "The Shawshank Redemption",
+        director: "Frank Darabont",
+        rating: 9.3
+      };
+      
+      var movieDetails = "Title: " + movie.title + "<br>"
+                      + "Director: " + movie.director + "<br>"
+                      + "Rating: " + movie.rating;
+      
+      document.getElementById("result").innerHTML = movieDetails;
+    }
+  </script>
+</head>
+<body>
+  <h1>Movie Object</h1>
+  <button onclick="displayMovie()">Display Movie</button>
+  <p id="result"></p>
+</body>
+</html>

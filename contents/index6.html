@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 6.You are given a string. Write a program that replaces all occurrences of a particular character with another character and displays the result on a web page.
+
+Given input:Skill sufuri,u,a
+Expected Ouput:Skill safari -->
+  <title>Character Replacement</title>
+
+  <script>
+    function replaceCharacters() {
+      var inputString = document.getElementById("inputString").value;
+      var targetChar = document.getElementById("targetChar").value;
+      var replacementChar = document.getElementById("replacementChar").value;
+      
+      var replacedString = inputString.split(targetChar).join(replacementChar);
+      
+      document.getElementById("result").innerHTML = replacedString;
+    }
+  </script>
+</head>
+<body>
+  <h1>Character Replacement</h1>
+  <label for="inputString">Input String:</label>
+  <input type="text" id="inputString"><br>
+  <label for="targetChar">Target Character:</label>
+  <input type="text" id="targetChar"><br>
+  <label for="replacementChar">Replacement Character:</label>
+  <input type="text" id="replacementChar"><br>
+  <button onclick="replaceCharacters()">Replace</button>
+  <p id="result"></p>
+</body>
+</html>

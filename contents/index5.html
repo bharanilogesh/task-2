@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show/Hide Columns</title>
+
+  <!-- 5.Write a program to show/hide certain columns in the table based on a user selection and display result on web page. -->
+
+  <script>
+    function toggleColumn(columnIndex) {
+      var table = document.getElementById("myTable");
+      var rows = table.getElementsByTagName("tr");
+      
+      for (var i = 0; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName("td");
+        
+        if (cells.length > columnIndex) {
+          var cell = cells[columnIndex];
+          
+          if (cell.style.display === "none") {
+            cell.style.display = "";
+          } else {
+            cell.style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
+</head>
+<body>
+  <h1>Show/Hide Columns</h1>
+  <table id="myTable">
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>25</td>
+      <td>New York</td>
+    </tr>
+    <tr>
+      <td>Emily</td>
+      <td>32</td>
+      <td>London</td>
+    </tr>
+  </table>
+  
+  <label for="columnSelect">Select Column:</label>
+  <select id="columnSelect" onchange="toggleColumn(this.value)">
+    <option value="0">Name</option>
+    <option value="1">Age</option>
+    <option value="2">City</option>
+  </select>
+</body>
+</html>

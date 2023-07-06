@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unique Words</title>
+
+<!-- 10.Write a program that creates a Set of unique words from an array of sentences and displays the result on the web page.
+
+Given Input:The quick brown fox", "jumps over the lazy dog", "The quick brown fox
+Expected output:The, quick, brown, fox, jumps, over, the, lazy, dog -->
+
+<script>
+  function findUniqueWords() {
+    var sentences = ["The quick brown fox", "jumps over the lazy dog", "The quick brown fox"];
+    
+    var wordsSet = new Set();
+    
+    for (var i = 0; i < sentences.length; i++) {
+      var words = sentences[i].split(" ");
+      
+      for (var j = 0; j < words.length; j++) {
+        var word = words[j].toLowerCase().replace(/[^\w\s]/g, ""); // Remove punctuation and convert to lowercase
+        wordsSet.add(word);
+      }
+    }
+    
+    var uniqueWords = Array.from(wordsSet);
+    document.getElementById("result").innerHTML = uniqueWords.join(", ");
+  }
+</script>
+</head>
+<body>
+  <h1>Unique Words</h1>
+  <button onclick="findUniqueWords()">Find Unique Words</button>
+  <p id="result"></p>
+</body>
+</html>

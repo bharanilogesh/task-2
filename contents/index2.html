@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Validation</title>
+
+  <!-- 2.You are given a string.Write a program that checks if a given string is a valid email address using logical operators and displays the result in web page.
+
+  Expected output:Valid email 
+  Given input:xxxx@gmail.com-->
+
+  <script>
+    function validateEmail() {
+      var email = document.getElementById("emailInput").value;
+      
+      var isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      
+      var result = isValid ? "Valid email" : "Invalid email";
+      
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Email Validation</h1>
+  <input type="text" id="emailInput" placeholder="Enter email">
+  <button onclick="validateEmail()">Validate</button>
+  <p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Total table</title>
+
+  <!-- 3.Write a program to calculate the total sum of a particular column in the table and display it on the web page.
+
+Given Input:
+Item	Price	Quantity
+Item 1	10	2
+Item 2	20	3
+Item 3	5	4
+
+Expected Output:
+
+Item	Price	Quantity
+Item 1	10	2
+Item 2	20	3
+Item 3	5	4
+Total: 35.00 -->
+
+
+<script>
+  function calculateTotal() {
+    var table = document.getElementById("myTable");
+    var rows = table.getElementsByTagName("tr");
+    var total = 0;
+    
+    for (var i = 1; i < rows.length; i++) {
+      var cells = rows[i].getElementsByTagName("td");
+      var price = parseFloat(cells[1].innerHTML);
+      var quantity = parseFloat(cells[2].innerHTML);
+      
+      total += price * quantity;
+    }
+    
+    var totalFormatted = total.toFixed(2);
+    var totalRow = '<tr><td colspan="3">Total:</td><td>' + totalFormatted + '</td></tr>';
+    
+    table.innerHTML += totalRow;
+  }
+</script>
+</head>
+<body>
+  <h1>Table Total</h1>
+  <table id="myTable">
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    <tr>
+      <td>Item 1</td>
+      <td>10</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Item 2</td>
+      <td>20</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Item 3</td>
+      <td>5</td>
+      <td>4</td>
+    </tr>
+  </table>
+  <button onclick="calculateTotal()">Calculate Total</button>
+</body>
+</html>

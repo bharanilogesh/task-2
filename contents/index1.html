@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Difference</title>
+
+  <!-- 1.You are given an array of numbers. Write a program that finds the difference between the largest and smallest numbers in the array and displays the result on a web page.
+
+Given input:2, 5, 1, 8, 3, 9.
+Expected output:8 -->
+  <script>
+    function findDifference() {
+      var numbers = [2, 5, 1, 8, 3, 9];
+      
+      var min = Math.min.apply(null, numbers);
+      var max = Math.max.apply(null, numbers);
+      
+      var difference = max - min;
+      
+      document.getElementById("result").innerHTML = "Difference: " + difference;
+    }
+  </script>
+</head>
+<body>
+  <h1>Array Difference</h1>
+  <button onclick="findDifference()">Find Difference</button>
+  <p id="result"></p>
+</body>
+</html>
